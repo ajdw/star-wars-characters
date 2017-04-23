@@ -3,45 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Star Wars</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
+  
   <body>
     <h1>Find out more about all Star Wars characters</h1>
     <button onclick="getStarwarsPeople()">Get Star Wars People</button>
     <div id="personList"></div>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>
 
-      function getStarwarsPeople() {
-        var personsList = document.getElementById('js-names');
-        var personsListContent = '';
-        var people;
-
-        $.ajax({
-          url: 'http://swapi.co/api/people',
-          dataType: 'JSON',
-          method: 'GET',
-          success: function(starwarsPeople) {
-            console.log('starwarsPeople: ', starwarsPeople);
-
-            people = starwarsPeople.results;
-
-            for(var i = 0; i < people.length; i++){
-              console.log('for loop is working');
-              personsListContent += '<h2>' + people[i].name +'</h2>';
-              personsListContent += '<h3>' + people[i].skin_color+'</h3>';
-              personsListContent += '<h3>' + people[i].gender +'</h3>';
-              personsListContent += '<h3>' + people[i].hair_color +'</h3>';
-            }
-
-              personList.innerHTML = personsListContent;
-
-
-          },
-          error: function(err) {
-            console.log('err: ', err);
-          }
-        });
-      }
-    </script>
   </body>
 </html>
